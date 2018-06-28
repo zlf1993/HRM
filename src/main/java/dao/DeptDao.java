@@ -18,5 +18,5 @@ public interface DeptDao {
     List<Dept> selectAllDept();
     @Select("select * from "+ DEPTTABLE+" where ID = #{id}")
     Dept selectById(int id);
-    
+
 }
