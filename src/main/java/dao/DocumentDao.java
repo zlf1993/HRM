@@ -4,7 +4,6 @@ import dao.provider.DocumentDynaSqlProvider;
 import domain.Document;
 import domain.Notice;
 import org.apache.ibatis.annotations.*;
-import org.apache.ibatis.jdbc.SQL;
 import org.apache.ibatis.mapping.FetchType;
 
 import java.util.List;
@@ -25,7 +24,7 @@ public interface DocumentDao {
             @Result(id = true, column = "ID", property = "id"),
             @Result(column = "CREATE_DATE",property = "createData",javaType = java.util.Date.class),
             @Result(column = "USER_ID",property = "user",
-                    one = @One(select = "org.fkit.hrm.dao.UserDao.selectById",
+                    one = @One(select = "main.java.dao.UserDao.selectById",
                             fetchType = FetchType.EAGER))
     })
     List<Document> selectByPage(Map<String,Object> params);
