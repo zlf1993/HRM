@@ -1,20 +1,22 @@
 package dao.provider;
-import static util.HrmConstants.DEPTTABLE;
 
-import domain.Dept;
+import domain.Job;
 import org.apache.ibatis.jdbc.SQL;
 
 import java.util.Map;
 
-public class DeptDynaSqlProvider {
+import static util.HrmConstants.JOBTABLE;
+
+public class JobDynaSqlProvider {
     public String selectWithParam(final Map<String, Object> params){
         String sql = new SQL(){
-            {SELECT("*");
-                FROM(DEPTTABLE);
-                if(params.get("dept") != null){
-                    Dept dept = (Dept) params.get("dept");
-                    if(dept.getName() != null && !dept.getName().equals("")){
-                        WHERE(" NAME LIKE CONCAT ('%',#{dept.name},'%')");
+            {
+                SELECT("*");
+                FROM(JOBTABLE);
+                if(params.get("job") != null){
+                    Job job = (Job) params.get("job");
+                    if(job.getName() != null && !job.getName().equals("")){
+                        WHERE(" NAME LIKE CONCAT ('%',#{job.name},'%')");
                     }
                 }
             }
@@ -22,17 +24,17 @@ public class DeptDynaSqlProvider {
         if(params.get("pageModel") != null){
             sql += " limit #{pageModel.firstLimitParam}, #{pageModel.pageSize}";
         }
-     return sql;
+        return sql;
     }
 
     public String count(final Map<String, Object> params){
         return new SQL(){
             {
                 SELECT("count(*)");
-                FROM(DEPTTABLE);
-                if (params.get("dept") != null){
-                    Dept dept = (Dept) params.get("dept");
-                    if(dept.getName() != null && !dept.getName().equals("")){
+                FROM(JOBTABLE);
+                if (params.get("job") != null){
+                    Job job = (Job) params.get("dept");
+                    if(job.getName() != null && !job.getName().equals("")){
                         WHERE(" NAME LIKE CONCAT ('%',#{dept.name},'%')");
                     }
                 }
@@ -40,27 +42,27 @@ public class DeptDynaSqlProvider {
         }.toString();
     }
 
-    public String insertDept(final Dept dept){
+    public String insertJob(final Job job){
         return new SQL(){
             {
-                INSERT_INTO(DEPTTABLE);
-                if(dept.getName() != null && !dept.getName().equals("")){
+                INSERT_INTO(JOBTABLE);
+                if(job.getName() != null && !job.getName().equals("")){
                     VALUES("NAME","#{name}");
                 }
-                if(dept.getRemark() != null && !dept.getRemark().equals(""))
+                if(job.getRemark() != null && !job.getRemark().equals(""))
                     VALUES("REMARK","#{remark}");
             }
         }.toString();
     }
 
-    public String updateDept(final Dept dept){
+    public String updateDept(final Job job){
         return new SQL(){
             {
-                UPDATE(DEPTTABLE);
-                if(dept.getName() != null){
+                UPDATE(JOBTABLE);
+                if(job.getName() != null){
                     SET(" NAME = #{name} ");
                 }
-                if(dept.getRemark() != null){
+                if(job.getRemark() != null){
                     SET(" REMARK = #{remark} ");
                 }
                 WHERE (" ID = #{id}");
