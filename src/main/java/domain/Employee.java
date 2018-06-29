@@ -12,9 +12,9 @@ public class Employee implements Serializable {
 
     private Integer id;
     private String name;
-    private String cardid;
+    private String cardId;
     private String address;
-    private String postcode;
+    private String postCode;
     private String tel;
     private String phone;
     private String email;
@@ -64,12 +64,12 @@ public class Employee implements Serializable {
         this.name = name;
     }
 
-    public String getCardid() {
-        return cardid;
+    public String getCardId() {
+        return cardId;
     }
 
-    public void setCardid(String cardid) {
-        this.cardid = cardid;
+    public void setCardId(String cardid) {
+        this.cardId = cardid;
     }
 
     public String getAddress() {
@@ -80,12 +80,12 @@ public class Employee implements Serializable {
         this.address = address;
     }
 
-    public String getPostcode() {
-        return postcode;
+    public String getPostCode() {
+        return postCode;
     }
 
-    public void setPostcode(String postcode) {
-        this.postcode = postcode;
+    public void setPostCode(String postcode) {
+        this.postCode = postcode;
     }
 
     public String getTel() {
