@@ -113,11 +113,11 @@ public class UserDynaSqlProviderTest {
     public void testSave() throws Exception {
         User user1 = new User();
         user1.setUsername("Longfei");
+        user1.setStatus(1);
         user1.setLoginname("zlf1993");
         user1.setPassword("z123456");
-        user1.setStatus(1);
-        Date date = new Date();
-        user1.setCreateDate(date);
+        //Date date = new Date();
+        //user1.setCreateDate(date);
         userDao.save(user1);
         System.out.println("ok2");
     }
