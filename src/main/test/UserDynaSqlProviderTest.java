@@ -1,25 +1,22 @@
+
+
 import fei.mapper.UserDao;
 import fei.domain.Page;
 import fei.domain.User;
-import fei.provider.UserDynaSqlProvider;
-import org.apache.ibatis.session.SqlSession;
-import org.apache.ibatis.session.SqlSessionFactory;
+
 import org.junit.Test;
 import org.junit.Before; 
 import org.junit.After;
 import org.junit.runner.RunWith;
-import org.mybatis.spring.SqlSessionFactoryBean;
-import org.mybatis.spring.support.SqlSessionDaoSupport;
+
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.context.ApplicationContext;
-import org.springframework.context.support.ClassPathXmlApplicationContext;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
 
-import javax.annotation.Resource;
 import java.util.Date;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 /** 
@@ -90,7 +87,9 @@ public class UserDynaSqlProviderTest {
     */
     @Test
     public void testSelectWithParam() throws Exception {
-        userDao.selectByPage(userMap);
+        List<User> users;
+        users = userDao.selectByPage(userMap);
+        System.out.println(users.get(0).getUsername());
     }
 
     /**
@@ -111,14 +110,7 @@ public class UserDynaSqlProviderTest {
     */
     @Test
     public void testSave() throws Exception {
-        User user1 = new User();
-        user1.setUsername("Longfei");
-        user1.setStatus(1);
-        user1.setLoginname("zlf1993");
-        user1.setPassword("z123456");
-        //Date date = new Date();
-        //user1.setCreateDate(date);
-        userDao.save(user1);
+        userDao.save(user);
         System.out.println("ok2");
     }
 
@@ -129,8 +121,14 @@ public class UserDynaSqlProviderTest {
     */
     @Test
     public void testUpdateUser() throws Exception {
-        user.setId(2);
+        user.setId(3);
         user.setPassword("111111");
+        userDao.update(user);
+    }
+
+    @Test
+    public void testDeleteUser() throws Exception {
+        userDao.deleteById(3);
     }
 
 

@@ -14,16 +14,16 @@ import java.util.Map;
 import static fei.util.HrmConstants.USERTABLE;
 
 public interface UserDao {
-    @Select("select * from "+USERTABLE+"where LOGINNAME = #{loginname) and PASSWORD = #{password}")
+    @Select("select * from "+USERTABLE+" where LOGINNAME = #{loginname} and PASSWORD = #{password}")
     User selectByLoginnameAndPassword(
             @Param("loginname") String loginname,
             @Param("password") String password
     );
 
-    @Select("select * from "+USERTABLE + "where ID = #{id}")
+    @Select("select * from "+USERTABLE + " where ID = #{id}")
     User selectById(Integer id);
 
-    @Delete("delete from "+USERTABLE+"where ID = #{id)}")
+    @Delete("delete from "+USERTABLE+" where ID = #{id)}")
     void deleteById(Integer id);
 
     @SelectProvider(type = UserDynaSqlProvider.class, method = "updateUser")

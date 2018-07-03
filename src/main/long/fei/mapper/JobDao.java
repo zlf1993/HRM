@@ -15,7 +15,7 @@ public interface JobDao {
     @Select("select * from "+ HrmConstants.JOBTABLE+" where ID = #{id}")
     Job selectById(int id);
 
-    @Select("select * from"+ HrmConstants.JOBTABLE +"")
+    @Select("select * from "+ HrmConstants.JOBTABLE +"")
     List<Job> selectAllDept();
 
     @SelectProvider(type = JobDynaSqlProvider.class, method = "selectWithParam")

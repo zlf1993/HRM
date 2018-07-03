@@ -17,11 +17,12 @@ public interface EmployeeDao {
     @Results({
             @Result(id =true,column="ID",property = "id"),
             @Result(column = "CARD_ID",property = "cardId"),
-            @Result(column = "POST_CODE",property = "postcode"),
+            @Result(column = "POST_CODE",property = "postCode"),
             @Result(column = "BIRTHDAY",property = "birthday"),
             @Result(column = "CREATE_DATE",property = "createDate",javaType = java.util.Date.class),
-            @Result(column = "DEPT_ID",property = "dept",one = @One(select = "main.java.DeptDao.selectById",fetchType = FetchType.EAGER)),
-            @Result(column = "JOB_ID",property = "job",one = @One(select = "main.java.JobDao.selectById",fetchType = FetchType.EAGER))
+            @Result(column = "DEPT_ID",property = "dept",one = @One(select = "fei.mapper.DeptDao.selectById",fetchType = FetchType.EAGER)),
+            @Result(column = "JOB_ID",property = "job",one = @One(select = "fei.mapper.JobDao.selectById",fetchType = FetchType.EAGER))
+
     })
     List<Employee> selectByPage(Map<String, Object> params);
 
@@ -38,8 +39,8 @@ public interface EmployeeDao {
             @Result(column = "POST_CODE",property = "postcode"),
             @Result(column = "BIRTHDAY",property = "birthday"),
             @Result(column = "CREATE_DATE",property = "createDate",javaType = java.util.Date.class),
-            @Result(column = "DEPT_ID",property = "dept",one = @One(select = "main.java.DeptDao.selectById",fetchType = FetchType.EAGER)),
-            @Result(column = "JOB_ID",property = "job",one = @One(select = "main.java.JobDao.selectById",fetchType = FetchType.EAGER))
+            @Result(column = "DEPT_ID",property = "dept",one = @One(select = "fei.mapper.DeptDao.selectById",fetchType = FetchType.EAGER)),
+            @Result(column = "JOB_ID",property = "job",one = @One(select = "fei.mapper.JobDao.selectById",fetchType = FetchType.EAGER))
     })
     Employee selectById(Integer id);
 

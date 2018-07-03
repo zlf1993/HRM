@@ -32,14 +32,14 @@ public class EmployeeDynaSqlProvider {
                     if(employee.getCardId()!=null && !employee.getCardId().equals("")){
                         WHERE("CARD_ID LIKE CONCAT ('%',#{employee.cardId},'%')");
                     }
-                    if(employee.getSex()!=null && employee.getSex()!=0){
-                        WHERE("SEX = #{empolyee.sex}");
+                    if(employee.getSex()!=null){
+                        WHERE("SEX = #{employee.sex}");
                     }
                 }
             }
         }.toString();
         if(params.get("pageModel")!= null){
-            sql += "limit #{pageModel.firstLimitParam}, #{paramModel.pagesize}";
+            sql += " limit #{pageModel.firstLimitParam}, #{pageModel.pageSize}";
         }
         return sql;
     }
@@ -58,7 +58,7 @@ public class EmployeeDynaSqlProvider {
                         WHERE("JOB_ID = #{employee.job.id}");
                     }
                     if(employee.getSex()!=null && employee.getSex()!=0){
-                        WHERE("SEX = #{empolyee.sex}");
+                        WHERE("SEX = #{employee.sex}");
                     }
                     if(employee.getName()!=null && !employee.getName().equals("")){
                         WHERE("NAME LIKE CONCAT ('%',#{employee.name},'%')");

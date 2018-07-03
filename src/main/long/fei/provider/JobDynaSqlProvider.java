@@ -33,9 +33,9 @@ public class JobDynaSqlProvider {
                 SELECT("count(*)");
                 FROM(JOBTABLE);
                 if (params.get("job") != null){
-                    Job job = (Job) params.get("dept");
+                    Job job = (Job) params.get("job");
                     if(job.getName() != null && !job.getName().equals("")){
-                        WHERE(" NAME LIKE CONCAT ('%',#{dept.name},'%')");
+                        WHERE(" NAME LIKE CONCAT ('%',#{job.name},'%')");
                     }
                 }
             }

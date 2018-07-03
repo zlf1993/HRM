@@ -22,7 +22,7 @@ public interface NoticeDao {
             @Result(id = true, column = "ID", property = "id"),
             @Result(column = "CREATE_DATE",property = "createData",javaType = java.util.Date.class),
             @Result(column = "USER_ID",property = "user",
-                    one = @One(select = "main.java.UserDao.selectById",
+                    one = @One(select = "fei.mapper.UserDao.selectById",
             fetchType = FetchType.EAGER))
     })
     List<Notice> selectByPage(Map<String,Object> params);

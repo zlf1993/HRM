@@ -18,7 +18,7 @@ public interface DeptDao {
     @SelectProvider(type = DeptDynaSqlProvider.class, method = "count")
     Integer count(Map<String,Object> params);
 
-    @Select("select * from"+ DEPTTABLE +"")
+    @Select("select * from "+ DEPTTABLE +"")
     List<Dept> selectAllDept();
 
     @Select("select * from "+ DEPTTABLE+" where ID = #{id}")
