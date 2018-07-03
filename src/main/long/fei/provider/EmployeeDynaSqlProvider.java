@@ -139,55 +139,55 @@ public class EmployeeDynaSqlProvider {
             {
                 UPDATE(EMPLOYEETABLE);
                 if(employee.getName() != null){
-                    SET("NAME", "#{name}");
+                    SET("NAME = #{name}");
                 }
                 if(employee.getCardId() != null){
-                    SET("CARD_ID","#{cardId}");
+                    SET("CARD_ID = #{cardId}");
                 }
                 if(employee.getAddress()!=null){
-                    SET("ADDRESS","#{address}");
+                    SET("ADDRESS = #{address}");
                 }
                 if(employee.getPostCode()!=null){
-                    SET("POST_CODE","#{postCode}");
+                    SET("POST_CODE = #{postCode}");
                 }
                 if(employee.getTel()!=null){
-                    SET("TEL","#{tel}");
+                    SET("TEL = #{tel}");
                 }
                 if(employee.getPhone()!= null){
-                    SET("PHONE","#{phone}");
+                    SET("PHONE = #{phone}");
                 }
                 if(employee.getEmail()!= null){
-                    SET("EMAIL","#{email}");
+                    SET("EMAIL = #{email}");
                 }
                 if(employee.getSex()!=null){
-                    SET("SEX","#{sex}");
+                    SET("SEX = #{sex}");
                 }
                 if (employee.getParty()!=null){
-                    SET("PARTY","#{party}");
+                    SET("PARTY = #{party}");
                 }
                 if(employee.getBirthday()!=null){
-                    SET("BIRTHDAY","#{birthday}");
+                    SET("BIRTHDAY = #{birthday}");
                 }
                 if(employee.getEducation()!=null){
-                    SET("EDUCATION","#{education}");
+                    SET("EDUCATION = #{education}");
                 }
                 if(employee.getSpeciality()!=null){
-                    SET("SPECIALITY","#{speciality}");
+                    SET("SPECIALITY = #{speciality}");
                 }
                 if (employee.getHobby()!=null){
-                    SET("HOBBY","#{hobby}");
+                    SET("HOBBY = #{hobby}");
                 }
                 if(employee.getRemark()!=null){
-                    SET("REMARK","#{remark}");
+                    SET("REMARK = #{remark}");
                 }
                 if (employee.getCreateDate()!=null){
-                    SET("CREATE_DATE","#{createDate}");
+                    SET("CREATE_DATE = #{createDate}");
                 }
                 if (employee.getDept()!=null){
-                    SET("DEPT_ID","#{dept.id}");
+                    SET("DEPT_ID = #{dept.id}");
                 }
                 if (employee.getJob()!= null){
-                    SET("JOB_ID","#{job.id}");
+                    SET("JOB_ID = #{job.id}");
                 }
                 WHERE("ID = #{id}");
             }

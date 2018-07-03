@@ -33,76 +33,102 @@ public class EmployeeDynaSqlProviderTest {
     EmployeeDao employeeDao;
 
 
-@Before
-public void before() throws Exception {
-    employee = new Employee();
-    employee.setSex(1);
+    @Before
+    public void before() throws Exception {
+        employee = new Employee();
+        employee.setSex(1);
 
-    page = new Page();
-    page.setFirstLimitParam(0);
-    page.setPageSize(10);
+        page = new Page();
+        page.setFirstLimitParam(0);
+        page.setPageSize(10);
 
-    map = new HashMap<String,Object>();
-    map.put("employee",employee);
-    map.put("pageModel",page);
-} 
+        map = new HashMap<String,Object>();
+        map.put("employee",employee);
+        map.put("pageModel",page);
+    }
 
-@After
-public void after() throws Exception {
-    employee = null;
-    page = null;
-    employeeDao = null;
-    map = null;
-} 
+    @After
+    public void after() throws Exception {
+        employee = null;
+        page = null;
+        employeeDao = null;
+        map = null;
+    }
 
-/** 
-* 
-* Method: selectWithParam(final Map<String,Object> params) 
-* 
-*/ 
-@Test
-public void testSelectWithParam() throws Exception {
-    employeeDao.selectByPage(map);
-} 
+    /**
+    *
+    * Method: selectWithParam(final Map<String,Object> params)
+    *
+    */
+    @Test
+    public void testSelectWithParam() throws Exception {
+        employeeDao.selectByPage(map);
+    }
 
-/** 
-* 
-* Method: count(final Map<String, Object> params) 
-* 
-*/ 
-@Test
-public void testCount() throws Exception {
+    /**
+    *
+    * Method: count(final Map<String, Object> params)
+    *
+    */
+    @Test
+    public void testCount() throws Exception {
 
-    employeeDao.count(map);
-} 
+        employeeDao.count(map);
+    }
 
-/** 
-* 
-* Method: insertEmployee(final Employee employee) 
-* 
-*/ 
-@Test
-public void testInsertEmployee() throws Exception {
-    Dept dept = new Dept();
-    dept.setId(1);
-    Job job = new Job();
-    job.setId(1);
-    employee.setDept(dept);
-    employee.setJob(job);
-    employee.setName("test");
-    employee.setAddress("haha");
-    employee.set
-} 
+    /**
+    *
+    * Method: insertEmployee(final Employee employee)
+    *
+    */
+    @Test
+    public void testInsertEmployee() throws Exception {
+        Dept dept = new Dept();
+        dept.setId(1);
+        Job job = new Job();
+        job.setId(1);
+        employee.setName("Daotong Dai");
+        employee.setDept(dept);
+        employee.setJob(job);
+        employee.setName("test");
+        employee.setAddress("haha");
+        employee.setEmail("173817959@qq.com");
+        employee.setPhone("15806672665");
+        employee.setCardId("12345678987654321");
+        employeeDao.save(employee);
+    }
 
-/** 
-* 
-* Method: updateEmployee(final Employee employee) 
-* 
-*/ 
-@Test
-public void testUpdateEmployee() throws Exception { 
-//TODO: Test goes here... 
-} 
+    /**
+    *
+    * Method: updateEmployee(final Employee employee)
+    *
+    */
+    @Test
+    public void testUpdateEmployee() throws Exception {
+        Dept dept = new Dept();
+        dept.setId(1);
+        Job job = new Job();
+        job.setId(1);
+        employee.setId(4);
+        employee.setName("Daotong Dai");
+        employee.setDept(dept);
+        employee.setJob(job);
+        employee.setName("test");
+        employee.setAddress("haha");
+        employee.setEmail("123456789@gmail.com");
+        employee.setPhone("15806672665");
+        employee.setCardId("1234567854321");
+        employeeDao.update(employee);
+    }
 
+    @Test
+        public void testSelectById() throws Exception {
+            employeeDao.selectById(1);
+        }
+
+    @Test
+    public  void testDeleteById() throws Exception{
+        employeeDao.deletById(4);
+    }
 
 } 

@@ -122,7 +122,7 @@ public class UserDynaSqlProviderTest {
     @Test
     public void testUpdateUser() throws Exception {
         user.setId(3);
-        user.setPassword("111111");
+        user.setPassword("333333");
         userDao.update(user);
     }
 

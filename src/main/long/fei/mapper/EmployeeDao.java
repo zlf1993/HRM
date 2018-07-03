@@ -29,14 +29,14 @@ public interface EmployeeDao {
     @SelectProvider(type = EmployeeDynaSqlProvider.class, method = "insertEmployee")
     void save(Employee employee);
 
-    @Delete("delect from "+EMPLOYEETABLE+"where ID = #{id}")
+    @Delete("delete from "+EMPLOYEETABLE+" where ID = #{id}")
     void deletById(Integer id);
 
-    @Select("select * from "+EMPLOYEETABLE+"where ID = #{id}")
+    @Select("select * from "+EMPLOYEETABLE+" where ID = #{id}")
     @Results({
             @Result(id =true,column="ID",property = "id"),
             @Result(column = "CARD_ID",property = "cardId"),
-            @Result(column = "POST_CODE",property = "postcode"),
+            @Result(column = "POST_CODE",property = "postCode"),
             @Result(column = "BIRTHDAY",property = "birthday"),
             @Result(column = "CREATE_DATE",property = "createDate",javaType = java.util.Date.class),
             @Result(column = "DEPT_ID",property = "dept",one = @One(select = "fei.mapper.DeptDao.selectById",fetchType = FetchType.EAGER)),
