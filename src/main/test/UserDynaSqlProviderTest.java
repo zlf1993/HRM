@@ -78,7 +78,7 @@ public class UserDynaSqlProviderTest {
     @Test
     public void testSelectById() throws Exception {
         Integer i = 1;
-        userDao.selectById(i);
+        user = userDao.selectById(i);
     }
     /**
     *

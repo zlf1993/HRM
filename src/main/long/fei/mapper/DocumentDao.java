@@ -22,7 +22,7 @@ public interface DocumentDao {
     @SelectProvider(type = DocumentDynaSqlProvider.class, method = "selectWithParam")
     @Results({
             @Result(id = true, column = "ID", property = "id"),
-            @Result(column = "CREATE_DATE",property = "createData",javaType = java.util.Date.class),
+            @Result(column = "CREATE_DATE",property = "createDate",javaType = java.util.Date.class),
             @Result(column = "USER_ID",property = "user",
                     one = @One(select = "fei.mapper.UserDao.selectById",
                             fetchType = FetchType.EAGER))

@@ -8,9 +8,19 @@ import java.util.Date;
 public class Document implements Serializable {
     private Integer id;
     private String title;
-    private String filename;
+    private String fileName;
     private MultipartFile file;
     private String remark;
+
+
+    public Date getCreateDate() {
+        return createDate;
+    }
+
+    public void setCreateDate(Date createDate) {
+        this.createDate = createDate;
+    }
+
     private Date createDate;
     private User user;
 
@@ -35,11 +45,11 @@ public class Document implements Serializable {
     }
 
     public String getFilename() {
-        return filename;
+        return fileName;
     }
 
     public void setFilename(String filename) {
-        this.filename = filename;
+        this.fileName = filename;
     }
 
     public MultipartFile getFile() {
@@ -58,13 +68,7 @@ public class Document implements Serializable {
         this.remark = remark;
     }
 
-    public Date getCreateDate() {
-        return createDate;
-    }
 
-    public void setCreateDate(Date createDate) {
-        this.createDate = createDate;
-    }
 
     public User getUser() {
         return user;
